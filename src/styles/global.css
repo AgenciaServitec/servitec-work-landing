@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary-50: #fffbeb;
+    --color-primary-100: #fef3c7;
+    --color-primary-200: #fde68a;
+    --color-primary-300: #fcd34d;
+    --color-primary-400: #fbbf24;
+    --color-primary-500: #f59e0b;
+    --color-primary-600: #d97706;
+    --color-primary-700: #b45309;
+    --color-primary-800: #92400e;
+    --color-primary-900: #78350f;
+    --color-primary-950: #451a03;
+
+    --color-secondary-50: #f8fafc;
+    --color-secondary-100: #f1f5f9;
+    --color-secondary-400: #94a3b8;
+    --color-secondary-700: #334155;
+    --color-secondary-800: #1e293b;
+    --color-secondary-900: #0f172a;
+    --color-secondary-950: #020617;
+
+    --color-success: #10b981;
+    --color-success-content: #064e3b;
+
+    --color-warning: #f97316;
+    --color-warning-content: #431407;
+
+    --color-error: #ef4444;
+    --color-error-content: #450a0a;
+
+    --color-info: #3b82f6;
+    --color-info-content: #172554;
+
+    --color-surface: var(--color-secondary-950);
+    --color-on-surface: var(--color-secondary-100);
+
+    --radius-brand: 0.75rem;
+}
+
+.bg-logo-gradient {
+    background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+}

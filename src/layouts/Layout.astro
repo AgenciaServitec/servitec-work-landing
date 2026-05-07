@@ -1,0 +1,118 @@
+---
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  url?: string;
+  type?: "website" | "article";
+  siteName?: string;
+  twitterCard?: "summary" | "summary_large_image";
+  twitterSite?: string;
+  robots?: string;
+  canonical?: string;
+}
+
+const {
+  title = "Servitec Work",
+  description = "Servitec Work: app de servicio técnico. Clientes solicitan reparaciones. Técnicos eligen trabajos y pagan S/ 5.00 por solicitud aceptada, previa recarga de saldo.",
+  image = "/og-default.jpg",
+  url = Astro.url.href,
+  type = "website",
+  siteName = "Servitec Work",
+  twitterCard = "summary_large_image",
+  twitterSite = "@servitec_work",
+  robots = "index, follow",
+  canonical = Astro.url.href,
+} = Astro.props;
+
+const absoluteImage = new URL(image, Astro.site ?? Astro.url.origin).href;
+const absoluteCanonical = new URL(canonical, Astro.url.origin).href;
+---
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="robots" content={robots} />
+  <meta name="author" content="Servitec Work" />
+  <link rel="canonical" href={absoluteCanonical} />
+
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={absoluteImage} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content={url} />
+  <meta property="og:type" content={type} />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:locale" content="es_ES" />
+
+  <meta name="twitter:card" content={twitterCard} />
+  <meta name="twitter:site" content={twitterSite} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={absoluteImage} />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+</head>
+<body class="antialiased scroll-smooth">
+<Header />
+<main class="min-h-screen">
+  <slot />
+</main>
+<Footer />
+</body>
+</html>
+
+<style is:global>
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    margin-right: calc(100vw - 100%);
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-secondary-950);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-secondary-800);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-500);
+  }
+
+  main {
+    animation: fadeIn 0.6s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
