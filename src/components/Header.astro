@@ -1,90 +1,22 @@
 ---
-import { Image } from "astro:assets"
 import ContentWidth from "./ContentWidth.astro";
 ---
-
-<header
-    id="header"
-    class="w-full fixed top-0 left-0 z-50 transition-all duration-300 border-b border-transparent"
->
+<header class="absolute top-0 w-full z-50 py-4">
   <ContentWidth>
-    <div class="flex justify-between items-center h-16 md:h-20">
-
-      <div class="flex items-center gap-8">
-        <a href="/" class="shrink-0 transition-transform hover:scale-105">
-          <Image
-              src="/logo.png"
-              alt="Logo de Servitec"
-              width={130}
-              height={40}
-              class="w-auto h-8 md:h-10 object-contain"
-              loading="eager"
-          />
-        </a>
-
-        <nav class="hidden md:block">
-          <ul class="flex gap-8 text-sm font-medium text-secondary-100">
-            <li>
-              <a href="/" class="hover:text-primary-500 transition-colors">Inicio</a>
-            </li>
-            <li>
-              <a href="/#benefits" class="hover:text-primary-500 transition-colors">Servicios</a>
-            </li>
-            <li>
-              <a href="/#jobs" class="hover:text-primary-500 transition-colors"></a>
-            </li>
-          </ul>
-        </nav>
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/logo.png" alt="Servitec Work Logo" class="w-12 h-12 object-contain" />
+        <span class="text-2xl font-bold text-secondary-950 tracking-tight hidden sm:block">
+          Servitec Work
+        </span>
       </div>
 
-      <div class="flex items-center gap-4">
-        <a
-            href="/#login"
-            class="text-sm font-medium text-secondary-100 hover:bg-secondary-800 px-4 py-2 rounded-full transition-all"
-        >
-          Descargar Aplicación
-        </a>
-        <a
-            href="/#contact"
-            class="px-5 py-2 rounded-full bg-primary-500 hover:bg-primary-600 text-secondary-950 font-bold text-sm transition-all active:scale-95"
-        >
-          Contacto
-        </a>
+      <div class="flex items-center gap-3">
+        <button class="flex items-center gap-2 bg-secondary-950/5 hover:bg-secondary-950/10 text-secondary-950 px-4 py-2 rounded-full font-medium transition-colors">
+          <img src="https://flagcdn.com/w20/pe.png" alt="ES" class="w-5 h-5 rounded-full object-cover shadow-sm" />
+          Es
+        </button>
       </div>
-
     </div>
   </ContentWidth>
 </header>
-
-<script>
-  const header = document.querySelector('#header') as HTMLElement;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
-      header.classList.add('bg-secondary-950/90', 'backdrop-blur-md', 'py-1', 'border-secondary-800', 'shadow-xl');
-      header.classList.remove('py-0', 'border-transparent');
-    } else {
-      header.classList.remove('bg-secondary-950/90', 'backdrop-blur-md', 'py-1', 'border-secondary-800', 'shadow-xl');
-      header.classList.add('border-transparent');
-    }
-  });
-</script>
-
-<style>
-  nav a {
-    position: relative;
-  }
-  nav a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background-color: var(--color-primary-500);
-    transition: width 0.3s ease;
-  }
-  nav a:hover::after {
-    width: 100%;
-  }
-</style>

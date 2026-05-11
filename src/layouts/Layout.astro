@@ -67,7 +67,7 @@ const absoluteCanonical = new URL(canonical, Astro.url.origin).href;
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 </head>
-<body class="antialiased scroll-smooth">
+<body class="bg-primary-50 antialiased scroll-smooth">
 <Header />
 <main class="min-h-screen">
   <slot />
@@ -78,7 +78,7 @@ const absoluteCanonical = new URL(canonical, Astro.url.origin).href;
 
 <style is:global>
   :root {
-    color-scheme: dark;
+    color-scheme: white;
   }
 
   html {

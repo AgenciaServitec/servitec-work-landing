@@ -2,6 +2,9 @@
 import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css"
+import MetricsSection from "../components/MetricsSection.astro";
+import FeaturesSection from "../components/FeaturesSection.astro";
+import SupportSection from "../components/SupportSection.astro";
 ---
 
 <Layout
@@ -11,4 +14,7 @@ import "../styles/global.css"
     type="website"
 >
   <Hero />
+  <MetricsSection />
+  <FeaturesSection />
+  <SupportSection />
 </Layout>
