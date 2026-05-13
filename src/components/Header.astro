@@ -1,22 +1,32 @@
 ---
 import ContentWidth from "./ContentWidth.astro";
 ---
-<header class="absolute top-0 w-full z-50 py-4">
+<header class="absolute top-0 w-full z-50 py-6 md:py-8">
   <ContentWidth>
-    <div class="flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <img src="/logo.png" alt="Servitec Work Logo" class="w-12 h-12 object-contain" />
-        <span class="text-2xl font-bold text-secondary-950 tracking-tight hidden sm:block">
+    <nav class="flex items-center justify-between" aria-label="Navegación principal">
+
+      <a href="/" class="flex items-center gap-3.5 transition-opacity hover:opacity-90">
+        <img
+            src="/logo.png"
+            alt="Servitec Work Logo"
+            class="w-11 h-11 md:w-12 md:h-12 object-contain"
+        />
+        <span class="text-xl md:text-2xl font-extrabold text-secondary-950 tracking-tight hidden sm:block">
           Servitec Work
         </span>
-      </div>
+      </a>
 
-      <div class="flex items-center gap-3">
-        <button class="flex items-center gap-2 bg-secondary-950/5 hover:bg-secondary-950/10 text-secondary-950 px-4 py-2 rounded-full font-medium transition-colors">
-          <img src="https://flagcdn.com/w20/pe.png" alt="ES" class="w-5 h-5 rounded-full object-cover shadow-sm" />
-          Es
+      <div class="flex items-center">
+        <button class="flex items-center gap-2.5 text-secondary-950 text-sm font-semibold transition-opacity hover:opacity-70 focus:outline-none">
+          <img
+              src="https://flagcdn.com/w20/pe.png"
+              alt="Perú"
+              class="w-5 h-5 rounded-full object-cover shadow-sm border border-secondary-950/10"
+          />
+          <span class="tracking-wide">ES</span>
         </button>
       </div>
-    </div>
+
+    </nav>
   </ContentWidth>
 </header>
